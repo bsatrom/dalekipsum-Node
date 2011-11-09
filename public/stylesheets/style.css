@@ -1,9 +1,26 @@
+@import url(http://fonts.googleapis.com/css?family=Pompiere|Bangers);
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: url(/images/exterminate-bg.png);
+  margin-top: 25px;
+  font: 24px 'Pompiere', cursive, Arial, serif;
+  background: #3D4A65 url(/images/exterminate-bg.png) no-repeat top left;
+  color: #0D1018;  
+}
+
+h1 {
+	font-family: "Bangers", cursive;
+	font-size: 72pt;
+	text-shadow: 4px 4px 4px #C0D2F3;
+	font-weight: 400;	
+	-webkit-transform: rotate(-10deg); 
+	-moz-transform: rotate(-10deg);
+	-o-transform: rotate(-10deg);	
+}
+
+h2 {
+	font: 36px;
 }
 
 a {
-  color: #00B7FF;
+  color: #C0D2F3;
 }
