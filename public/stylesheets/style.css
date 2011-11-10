@@ -1,26 +1,174 @@
-@import url(http://fonts.googleapis.com/css?family=Pompiere|Bangers);
+@import url(http://fonts.googleapis.com/css?family=Bangers|Oswald);
 
 body {
-  margin-top: 25px;
-  font: 24px 'Pompiere', cursive, Arial, serif;
-  background: #3D4A65 url(/images/exterminate-bg.png) no-repeat top left;
-  color: #0D1018;  
+	margin: 0;
+	padding: 0;
+  font: 24px 'Oswald', sans-serif;
+  background: #05070c url(/images/backgroundStrip.png);
+  background-repeat: repeat-x;
+  color: #0D1018;
 }
 
 h1 {
+	float: left;
 	font-family: "Bangers", cursive;
-	font-size: 72pt;
+	font-size: 80pt;
 	text-shadow: 4px 4px 4px #C0D2F3;
 	font-weight: 400;	
-	-webkit-transform: rotate(-10deg); 
-	-moz-transform: rotate(-10deg);
-	-o-transform: rotate(-10deg);	
+	width: 100%;
+	text-align: center;
+	-webkit-transform: rotate(-8deg); 
+	-moz-transform: rotate(-8deg);
+	-o-transform: rotate(-8deg);
+	transform: rotate(-8deg);	
 }
 
 h2 {
-	font: 36px;
+	font: 24px 'Oswald', sans-serif;
+	text-align: center;
+	width: 100%;	
+}
+
+nav {
+	position: absolute;
+	top: 0px;
+	background: #05070c;
+	font: 20px 'Oswald', sans-serif;
+	font-weight: 400;
+	text-transform:uppercase;
+	height: 30px;
+	width: 100%;
+	float: right;
+	display: block;
+	margin: 0;
+	padding: 0;
+	text-align: center 
+}
+
+nav p,
+#links {
+	margin: 0;
+	padding: 0 0 0 5px;	
+}
+
+nav p {
+	float: left;
+	color: #C0D2F3;
+}
+
+.centered {
+	width: 75%;
+	margin: auto;
+}
+
+nav #links {
+	float: right;
+}
+
+#links {
+	list-style-type:none;
+	position: relative;
+	color: #C0D2F3;	
+}
+
+#links li {
+	display: inline;
+	padding: 0;
+	margin: 0;
+}
+
+ul a:link,
+ul a:visited,
+#links a:link,
+#links a:visited {
+	padding:20px 10px 4px 10px;	
+}
+
+p a:link,
+p a:visited,
+#links a:link,
+#links a:visited {
+	color:#C0D2F3;
+	text-decoration: none;	
+	text-shadow: none;
+	-webkit-transition: 500ms linear 0s;
+	-moz-transition: 500ms linear 0s;
+	-o-transition: 500ms linear 0s;
+	transition: 500ms linear 0s;
+	outline: 0 none;
+}
+
+p a:hover,
+p a:focus,
+#links a:hover,
+#links a:focus {
+	color: #fff;
+	text-shadow: -1px 1px 10px #ffc, 1px -1px 10px #fff;  
+}
+
+#silhouette {
+	background: url(/images/dalekDark.png);
+	height: 1080px;
+	width: 814px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
 }
 
 a {
   color: #C0D2F3;
+}
+
+footer p {
+	color: #C0D2F3;
+	margin: 0;
+	padding: 0;
+}
+
+footer {
+	position: absolute;
+	bottom: 50px;
+	background: #05070c;
+	font: 14px 'Oswald', sans-serif;
+	font-weight: 400;
+	text-transform:uppercase;
+	height: 30px;
+	width: 100%;
+	display: block;
+	margin: 0;
+	padding: 0;
+	text-align: center 
+}
+
+.bubble {
+	width:400px;
+	color:#efefef;
+}
+.bubble .pointer {
+	height:15px;
+	background:#393939;
+}
+.bubble .pointer div {
+	height:100%;
+	background:#ffffff;
+}
+.bubble .pointer .one {
+	width:50%;
+	-moz-border-radius-bottomright: 15px;
+	-webkit-border-bottom-right-radius:15px;
+	float:left;
+}
+.bubble .pointer .two {
+	width:50%;
+	float:right;
+	-moz-border-radius-bottomleft: 15px;
+	-webkit-border-bottom-left-radius:15px;
+}
+.bubble .content {
+	padding:10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius:10px;
+	background:#393939;
+	text-align:center;
 }

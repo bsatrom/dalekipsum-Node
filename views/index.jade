@@ -1,3 +1,42 @@
-hgroup
-	h2 Welcome to #{title}. Your #1 Source for placeholder text, lovingly crafted by the children of Skaro.
-	h1= title
+nav
+	.centered
+		p Yet Another Lorem Ipsum Clone
+		ul#links
+			li: a(href="http://www.facebook.com/dalekipsum") Like Us
+			|
+			li: a(href="http://wwwtwitter.com/dalekipsum") Follow Us
+			|
+			li: a(href="") Share
+			|
+			li: a(href="http://api.dalekipsum.com") API!
+header
+	hgroup
+		h1= title
+		h2 Placeholder text, mercilessly crafted by the children of Skaro.
+#silhouette
+#main
+	#bubble
+		#pointer
+			#one
+			#two
+		#content
+			//p EXTERMINATE!
+footer
+	.centered
+		p Copyright &copy; 2011 Brandon Satrom :: Carrot Pants Studios
+		ul#links
+			li: a(href="http://www.twitter.com/brandonsatrom") @BrandonSatrom
+			|
+			li: a(href="http://www.userinexperience.com") Blog
+			|
+			li: a(href="http://mailto:bsatrom@gmail.com") Contact
+		p This site was built using 
+			a(href="") Node.js 
+			| with 
+			a(href="") Express
+			|,
+			a(href="") Jade 
+			| and 
+			a(href="") CoffeeScript 
+			| and is running on
+			a(href="") Heroku
