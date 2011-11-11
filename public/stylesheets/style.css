@@ -35,14 +35,14 @@ h2 {
 	color: #C0D2F3;
 	height: 50px;
 	position: relative;
-	top: -70px;
+	top: -80px;
 }
 
 header div {
 	width: 50px;
 	margin:auto;
 	position: relative;
-	top: -30px;
+	top: -40px;
 }
 
 nav {
@@ -154,36 +154,4 @@ footer {
 	margin: 0;
 	padding: 0;
 	text-align: center 
-}
-
-.bubble {
-	width:400px;
-	color:#efefef;
-}
-.bubble .pointer {
-	height:15px;
-	background:#393939;
-}
-.bubble .pointer div {
-	height:100%;
-	background:#ffffff;
-}
-.bubble .pointer .one {
-	width:50%;
-	-moz-border-radius-bottomright: 15px;
-	-webkit-border-bottom-right-radius:15px;
-	float:left;
-}
-.bubble .pointer .two {
-	width:50%;
-	float:right;
-	-moz-border-radius-bottomleft: 15px;
-	-webkit-border-bottom-left-radius:15px;
-}
-.bubble .content {
-	padding:10px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius:10px;
-	background:#393939;
-	text-align:center;
 }
