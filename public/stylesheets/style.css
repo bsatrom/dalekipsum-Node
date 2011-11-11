@@ -28,6 +28,7 @@ h1 {
 	-moz-transform: rotate(-8deg);
 	-o-transform: rotate(-8deg);
 	transform: rotate(-8deg);	
+	z-index:-1;
 }
 
 h2 {
@@ -129,8 +130,47 @@ p a:focus,
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	z-index: -1;
+	z-index: -2;
 }
+
+#main {
+	font: 18px 'Oswald', sans-serif;	
+	color: #C0D2F3;
+	width: 50%;
+	margin: auto;
+	text-align: center;
+}
+
+select.styled {
+	background: #05070c;
+	color: #C0D2F3;
+	width: 70px;
+  padding: 5px;
+  font: 18px 'Oswald', sans-serif;
+  border: 1px solid #05070c;	
+}
+
+a.button {
+	font: 40px 'Bangers', cursive;	
+	background: #05070c url(/images/alert-overlay.png) repeat-x;
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #C0D2F3;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: relative;
+	cursor: pointer;
+}
+
 
 a {
   color: #C0D2F3;

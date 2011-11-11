@@ -17,7 +17,21 @@ header
 		script(src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ebc827a252c26d6")
 #silhouette
 #main
-	
+	form#ipsum
+		p Number of Paragraphs? 
+			select.styled#numParagraphs
+				- var items = [1, 2, 3, 4, 5]
+				each item in items
+					option(value= #{item}) #{item}
+		p EXTERMINATE! Multiplier? 
+			select.styled#exterminateMultiplier
+				- var items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+				each item in items
+					option(value= #{item}) #{item}
+		p EXTERMINATE! the p tags?
+			input#exterminatePTags(type='checkbox')			
+		p 
+			a.button GENERATE!
 footer
 	.centered
 		p Copyright &copy; 2011 Brandon Satrom :: Carrot Pants Studios
