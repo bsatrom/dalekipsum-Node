@@ -9,6 +9,12 @@ body {
   color: #0D1018;
 }
 
+header {
+	text-align: center;
+	width: 100%;
+	position: relative;
+}
+
 h1 {
 	float: left;
 	font-family: "Bangers", cursive;
@@ -16,7 +22,8 @@ h1 {
 	text-shadow: 4px 4px 4px #C0D2F3;
 	font-weight: 400;	
 	width: 100%;
-	text-align: center;
+	position: relative;
+	top: -30px;
 	-webkit-transform: rotate(-8deg); 
 	-moz-transform: rotate(-8deg);
 	-o-transform: rotate(-8deg);
@@ -24,9 +31,18 @@ h1 {
 }
 
 h2 {
-	font: 24px 'Oswald', sans-serif;
-	text-align: center;
-	width: 100%;	
+	font: 20px 'Oswald', sans-serif;
+	color: #C0D2F3;
+	height: 50px;
+	position: relative;
+	top: -70px;
+}
+
+header div {
+	width: 50px;
+	margin:auto;
+	position: relative;
+	top: -30px;
 }
 
 nav {
@@ -129,7 +145,6 @@ footer p {
 footer {
 	position: absolute;
 	bottom: 50px;
-	background: #05070c;
 	font: 14px 'Oswald', sans-serif;
 	font-weight: 400;
 	text-transform:uppercase;
