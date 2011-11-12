@@ -100,7 +100,7 @@ ul a:visited,
 #links a:visited {
 	padding:20px 10px 4px 10px;	
 }
-
+a.button,
 p a:link,
 p a:visited,
 #links a:link,
