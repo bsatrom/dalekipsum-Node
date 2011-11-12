@@ -152,6 +152,16 @@ select.styled {
   border: 1px solid #05070c;	
 }
 
+textarea#ipsumText {
+	background: #05070c;
+	color: #C0D2F3;
+	width: 550px;
+	height: 250px;
+  padding: 5px;
+  font: 20px 'Oswald', sans-serif;
+  border: 5px solid #05070c;
+}
+
 a.button {
 	font: 40px 'Bangers', cursive;	
 	background: #05070c url(/images/alert-overlay.png) repeat-x;
