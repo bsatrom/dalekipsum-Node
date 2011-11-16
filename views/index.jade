@@ -1,3 +1,11 @@
+// Page Logic Begin
+// Placeholder text logic
+- var textPhrases= phrases
+- var content = ""
+each phrase in textPhrases
+	- content= content + " " + phrase.value
+// Page Logic End
+
 nav
 	.centered
 		p Yet Another Lorem Ipsum Clone
@@ -33,9 +41,8 @@ header
 		p 
 			a.button GENERATE!
 		p
-			textarea#ipsumText EXTERMINATE! EXTERMINATE! Exterminate! It is the Doctor! Enemy of the Daleks! You will be Exterminated! Bring the humans to me. Dalekanium Skaro Davros The Doctor EXTERMINATE!
-
-Emperor of the Daleks
+			
+			textarea#ipsumText #{content}
 footer
 	.centered
 		p Copyright &copy; 2011 Brandon Satrom :: Carrot Pants Studios

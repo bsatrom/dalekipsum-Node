@@ -19,7 +19,7 @@ failImg = "#{imgBase}coffee-error.png"
 wingrr.registerApplication "Cake", {image:  coffeeImg}
   
 clean = ->
-  files = ['app.js', 'public/javascripts/index.js', 'public/javascripts/index.min.js']
+  files = ['app.js', 'public/javascripts/index.js', 'public/javascripts/index.min.js', 'model/phrases.js', 'envHelper.js']
   directories = ['routes']
   
   fs.unlink file for file in files
@@ -47,7 +47,7 @@ task 'cleanup', 'cleans up the libs before a release', ->
 task 'build', "builds #{project}", ->
     util.log "building #{project} files from coffeescript"
     
-    files = ["app.coffee", "routes/*.coffee", "public/javascripts/*.coffee"]
+    files = ["app.coffee", "routes/*.coffee", "public/javascripts/*.coffee", "model/*.coffee", "envHelper.coffee"]
     
     (exec "coffee --compile #{file}", (err, stdout, stderr) ->
       throw err if err

@@ -31,6 +31,8 @@
     return next();
   });
   app.get('/', routes.index);
-  app.listen(process.env.PORT || 3000);
+  app.get('/phrases', routes.phrases);
+  app.get('/text/:multiplier?/:paragraphs?', routes.placeholderText);
+  app.listen(process.env.PORT);
   util.log("Express server listening on port " + (app.address() ? app.address().port : process.env.PORT) + " in " + app.settings.env + " mode");
 }).call(this);
