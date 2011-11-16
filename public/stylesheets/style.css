@@ -199,8 +199,8 @@ footer p {
 }
 
 footer {
-	position: absolute;
-	bottom: 50px;
+	position: relative;
+	bottom: 10px;
 	font: 14px 'Oswald', sans-serif;
 	font-weight: 400;
 	text-transform:uppercase;
