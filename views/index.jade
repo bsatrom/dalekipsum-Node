@@ -30,16 +30,22 @@ header
 			select.styled#numParagraphs
 				- var items = [1, 2, 3, 4, 5]
 				each item in items
-					option(value= #{item}) #{item}
+					- if (item === 2)
+						option(value= #{item}, selected='selected') #{item}
+					- else
+						option(value= #{item}) #{item}
 		p EXTERMINATE! Multiplier? 
 			select.styled#exterminateMultiplier
 				- var items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 				each item in items
-					option(value= #{item}) #{item}
+					- if (item === 1)
+						option(value= #{item}, selected='selected') #{item}
+					- else
+						option(value= #{item}) #{item}
 		p EXTERMINATE! the p tags?
 			input#exterminatePTags(type='checkbox')			
 		p 
-			a.button GENERATE!
+			a.button(id='generate') GENERATE!
 		p
 			
 			textarea#ipsumText #{content}
