@@ -1,29 +1,43 @@
 (function() {
-  var addExterminate, client, db, env, formatText, pg, util;
+  var addExterminate, client, db, env, formatText, pg, processPhrases, util;
   pg = require('pg');
   util = require('util');
   env = require('../envHelper');
   client = new pg.Client(process.env.DATABASE_URL || env.getEnvVar("DATABASE_URL"));
   client.connect();
   db = require('../model/phrases.js');
+  processPhrases = function(array, multiplier, numParagraphs) {
+    var phrase, phrases, phrasesArray, _i, _len;
+    phrases = addExterminate(array, multiplier);
+    phrases.sort(function() {
+      return 0.5 - Math.random();
+    });
+    phrasesArray = [];
+    for (_i = 0, _len = phrases.length; _i < _len; _i++) {
+      phrase = phrases[_i];
+      phrasesArray.push(phrase.value);
+    }
+    return formatText(phrasesArray);
+  };
   formatText = function(array, numParagraphs) {
-    var paragraphLengths, text, _results;
+    var paragraphLengths, text;
     paragraphLengths = [50, 100, 150];
     text = "";
-    _results = [];
     while (numParagraphs -= 1) {
-      _results.push(text += "\n\n");
+      text += "\n\n";
     }
-    return _results;
+    return array.join(" ");
   };
   addExterminate = function(array, multiplier) {
-    var ext, num, remainder;
+    var ext, remainder;
     ext = {
       id: 0,
       value: "EXTERMINATE!"
     };
-    remainder = ((multiplier + 1) * array.length) - array.length;
-    num = remainder;
+    remainder = Math.round((multiplier * .1) * array.length);
+    if (remainder === 0) {
+      return array;
+    }
     while (remainder -= 1) {
       array.push(ext);
     }
@@ -61,19 +75,10 @@
   */
   exports.placeholderText = function(req, res) {
     return db.getPhrases(client, function(phrases) {
-      var multiplier, paragraphs, phrase, phrasesArray, phrasesJson, phrasesText, _i, _len;
+      var multiplier, paragraphs, phrasesJson, phrasesText;
       multiplier = req.params.multiplier || 1;
       paragraphs = req.params.paragraphs || 1;
-      phrases = addExterminate(phrases, multiplier);
-      phrases.sort(function() {
-        return 0.5 - Math.random();
-      });
-      phrasesArray = [];
-      for (_i = 0, _len = phrases.length; _i < _len; _i++) {
-        phrase = phrases[_i];
-        phrasesArray.push(phrase.value);
-      }
-      phrasesText = phrasesArray.join(" ");
+      phrasesText = processPhrases(phrases, multiplier, paragraphs);
       phrasesJson = {
         "text": phrasesText
       };

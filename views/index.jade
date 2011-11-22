@@ -36,7 +36,7 @@ header
 						option(value= #{item}) #{item}
 		p EXTERMINATE! Multiplier? 
 			select.styled#exterminateMultiplier
-				- var items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+				- var items = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 				each item in items
 					- if (item === 1)
 						option(value= #{item}, selected='selected') #{item}
@@ -57,7 +57,7 @@ footer
 			|
 			li: a(href="http://www.userinexperience.com") Blog
 			|
-			li: a(href="http://mailto:bsatrom@gmail.com") Contact
+			li: a(href="mailto:bsatrom@gmail.com") Contact
 		p This site was built using 
 			a(href="") Node.js 
 			| with 
