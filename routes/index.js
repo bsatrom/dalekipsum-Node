@@ -1,12 +1,12 @@
 (function() {
-  var addExterminate, client, db, env, formatText, pg, processPhrases, util;
+  var addExterminate, client, createParagraph, db, env, formatText, pg, processPhrases, util;
   pg = require('pg');
   util = require('util');
   env = require('../envHelper');
   client = new pg.Client(process.env.DATABASE_URL || env.getEnvVar("DATABASE_URL"));
   client.connect();
   db = require('../model/phrases.js');
-  processPhrases = function(array, multiplier, numParagraphs) {
+  processPhrases = function(array, multiplier, numParagraphs, pTag) {
     var phrase, phrases, phrasesArray, _i, _len;
     phrases = addExterminate(array, multiplier);
     phrases.sort(function() {
@@ -17,16 +17,37 @@
       phrase = phrases[_i];
       phrasesArray.push(phrase.value);
     }
-    return formatText(phrasesArray);
+    return formatText(phrasesArray, numParagraphs, pTag);
   };
-  formatText = function(array, numParagraphs) {
-    var paragraphLengths, text;
+  formatText = function(array, numParagraphs, pTag) {
+    var index, paragraphLength, paragraphLengths, text;
     paragraphLengths = [50, 100, 150];
     text = "";
+    numParagraphs++;
     while (numParagraphs -= 1) {
-      text += "\n\n";
+      paragraphLength = paragraphLengths[Math.floor(Math.random() * 3)];
+      if (pTag === 'true') {
+        text += "<p>";
+      }
+      for (index = 0; 0 <= paragraphLength ? index <= paragraphLength : index >= paragraphLength; 0 <= paragraphLength ? index++ : index--) {
+        text += createParagraph(array, index);
+      }
+      if (pTag === 'true') {
+        text += "<p>";
+      }
+      if (numParagraphs !== 1) {
+        text += "\n\n";
+      }
     }
-    return array.join(" ");
+    return text.replace(/^\s+|\s+$/g, "");
+  };
+  createParagraph = function(array, index) {
+    var length;
+    array.sort(function() {
+      return 0.5 - Math.random();
+    });
+    length = array.length;
+    return "" + array[index % length] + " ";
   };
   addExterminate = function(array, multiplier) {
     var ext, remainder;
@@ -48,13 +69,11 @@
   */
   exports.index = function(req, res) {
     return db.getPhrases(client, function(phrases) {
-      phrases = addExterminate(phrases, 1);
-      phrases.sort(function() {
-        return 0.5 - Math.random();
-      });
+      var phrasesText;
+      phrasesText = processPhrases(phrases, 1, 2, 'true');
       return res.render('index', {
         title: 'Dalek Ipsum!',
-        phrases: phrases
+        phrases: phrasesText
       });
     });
   };
@@ -75,10 +94,11 @@
   */
   exports.placeholderText = function(req, res) {
     return db.getPhrases(client, function(phrases) {
-      var multiplier, paragraphs, phrasesJson, phrasesText;
+      var multiplier, pTags, paragraphs, phrasesJson, phrasesText;
       multiplier = req.params.multiplier || 1;
       paragraphs = req.params.paragraphs || 1;
-      phrasesText = processPhrases(phrases, multiplier, paragraphs);
+      pTags = req.params.pTags || 'true';
+      phrasesText = processPhrases(phrases, multiplier, paragraphs, pTags);
       phrasesJson = {
         "text": phrasesText
       };

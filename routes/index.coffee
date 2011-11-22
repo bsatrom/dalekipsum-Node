@@ -8,24 +8,35 @@ client.connect()
 db = require '../model/phrases.js'
 
 # process array into phrases with paragraphs and an exterminate multiplier
-processPhrases = (array, multiplier, numParagraphs) ->
+processPhrases = (array, multiplier, numParagraphs, pTag) ->
 	phrases = addExterminate array, multiplier
 	phrases.sort -> 0.5 - Math.random()
 	phrasesArray = []
 	phrasesArray.push(phrase.value) for phrase in phrases
 		
-	formatText phrasesArray
+	formatText phrasesArray, numParagraphs, pTag
 
 # Create a function to format the text
-formatText = (array, numParagraphs) ->
+formatText = (array, numParagraphs, pTag) ->
 	paragraphLengths = [50, 100, 150]
 	text = ""
 	
+	numParagraphs++
 	while numParagraphs -= 1
-		text += "\n\n"
+		paragraphLength = paragraphLengths[Math.floor(Math.random()*3)]
 		
-	array.join " "
+		if pTag is 'true' then text += "<p>"
+		text += createParagraph array, index for index in [0..paragraphLength]
+		if pTag is 'true' then text += "<p>"
+		text += "\n\n" unless numParagraphs is 1
 	
+	return text.replace /^\s+|\s+$/g, ""
+
+createParagraph = (array, index)	->
+	array.sort -> 0.5 - Math.random()
+	length = array.length
+	"#{array[index % length]} "
+		
 # insert EXTERMINATE! text into the array, Given a multiplier
 addExterminate = (array, multiplier) ->
 	ext = {
@@ -46,10 +57,9 @@ addExterminate = (array, multiplier) ->
 ###
 exports.index = (req, res) ->
 	db.getPhrases client, (phrases) ->
-		phrases = addExterminate phrases, 1
-		phrases.sort -> 0.5 - Math.random()
+		phrasesText = processPhrases phrases, 1, 2, 'true'
 		
-		res.render 'index', { title: 'Dalek Ipsum!', phrases: phrases }
+		res.render 'index', { title: 'Dalek Ipsum!', phrases: phrasesText }
 
 ###
  * GET phrases
@@ -66,7 +76,8 @@ exports.placeholderText = (req, res) ->
 	db.getPhrases client, (phrases) ->
 		multiplier = req.params.multiplier or 1
 		paragraphs = req.params.paragraphs or 1
+		pTags = req.params.pTags or 'true'
 		
-		phrasesText = processPhrases phrases, multiplier, paragraphs
+		phrasesText = processPhrases phrases, multiplier, paragraphs, pTags
 		phrasesJson = {"text": phrasesText}				
 		res.send JSON.stringify(phrasesJson)	

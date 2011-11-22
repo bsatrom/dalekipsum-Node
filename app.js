@@ -32,7 +32,7 @@
   });
   app.get('/', routes.index);
   app.get('/phrases', routes.phrases);
-  app.get('/text/:multiplier?/:paragraphs?', routes.placeholderText);
+  app.get('/text/:multiplier?/:paragraphs?/:pTags?', routes.placeholderText);
   app.listen(process.env.PORT);
   util.log("Express server listening on port " + (app.address() ? app.address().port : process.env.PORT) + " in " + app.settings.env + " mode");
 }).call(this);

@@ -1,20 +1,10 @@
-// Page Logic Begin
-// Placeholder text logic
-- var textPhrases= phrases
-- var content = ""
-each phrase in textPhrases
-	- content= content + " " + phrase.value
-// Page Logic End
-
 nav
 	.centered
 		p Yet Another Lorem Ipsum Clone
 		ul#links
-			li: a(href="http://www.facebook.com/dalekipsum") Like Us
-			|
-			li: a(href="http://wwwtwitter.com/dalekipsum") Follow Us
-			|
-			li: a(href="http://api.dalekipsum.com") API!
+			li: Site Created by
+			li: a(href="http://www.twitter.com/brandonsatrom")@BrandonSatrom
+			
 header
 	hgroup
 		h1= title
@@ -48,7 +38,7 @@ header
 			a.button(id='generate') GENERATE!
 		p
 			
-			textarea#ipsumText #{content}
+			textarea#ipsumText #{phrases}
 footer
 	.centered
 		p Copyright &copy; 2011 Brandon Satrom :: Carrot Pants Studios
@@ -58,6 +48,10 @@ footer
 			li: a(href="http://www.userinexperience.com") Blog
 			|
 			li: a(href="mailto:bsatrom@gmail.com") Contact
+		p 
+			a(href="http://dribbble.com/shots/175399-Exterminate-Wallpaper") Dalek Background
+			|	created by 
+			a(href="http://dribbble.com/dwiskus") Dave Wiskus
 		p This site was built using 
 			a(href="") Node.js 
 			| with 
