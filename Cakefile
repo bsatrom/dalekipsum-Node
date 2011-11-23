@@ -19,7 +19,7 @@ failImg = "#{imgBase}coffee-error.png"
 wingrr.registerApplication "Cake", {image:  coffeeImg}
   
 clean = ->
-  files = ['app.js', 'public/javascripts/index.js', 'public/javascripts/index.min.js', 'model/phrases.js', 'envHelper.js']
+  files = ['app.js', 'public/javascripts/index.js', 'public/javascripts/index.min.js', 'public/javascripts/submit.js', 'public/javascripts/submit.min.js', 'model/phrases.js', 'envHelper.js']
   directories = ['routes']
   
   fs.unlink file for file in files

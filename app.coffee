@@ -35,6 +35,8 @@ app.get '/*', (req, res, next) ->
 app.get '/', routes.index
 app.get '/phrases', routes.phrases
 app.get '/text/:multiplier?/:paragraphs?/:pTags?', routes.placeholderText
+app.get '/submit', routes.submitPhrase
+app.post '/submit', routes.submitPhrase_post
 
 app.listen process.env.PORT
 util.log "Express server listening on port #{if app.address() then app.address().port else process.env.PORT} in #{app.settings.env} mode"

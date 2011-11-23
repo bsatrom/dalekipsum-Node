@@ -1,18 +1,3 @@
-nav
-	.centered
-		p Yet Another Lorem Ipsum Clone
-		ul#links
-			li: a(href="http://www.twitter.com/brandonsatrom") Created by @BrandonSatrom
-			
-header
-	hgroup
-		h1= title
-		h2 Placeholder text, mercilessly crafted by the children of Skaro.
-		// AddThis Button BEGIN
-		.addthis_toolbox.addthis_default_style
-			a.addthis_counter()
-		script(src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ebc827a252c26d6")
-#silhouette
 #main
 	form#ipsum
 		p Number of Paragraphs? 
@@ -35,41 +20,8 @@ header
 			input#exterminatePTags(type='checkbox')			
 		p 
 			a.button(id='generate') GENERATE!
-		p
-			
+		p			
 			textarea#ipsumText #{phrases}
-footer
-	.centered
-		p Copyright &copy; 2011 Brandon Satrom :: Carrot Pants Studios
-		ul#links
-			li: a(href="http://www.twitter.com/brandonsatrom") @BrandonSatrom
-			|
-			li: a(href="http://www.userinexperience.com") Blog
-			|
-			li: a(href="mailto:bsatrom@gmail.com") Contact
-		p 
-			a(href="http://dribbble.com/shots/175399-Exterminate-Wallpaper") Dalek Background
-			|	created by 
-			a(href="http://dribbble.com/dwiskus") Dave Wiskus
-		p This site was built using 
-			a(href="") Node.js 
-			| with 
-			a(href="") Express
-			|,
-			a(href="") Jade 
-			| and 
-			a(href="") CoffeeScript 
-			| and is running on
-			a(href="") Heroku
+		p
+			a(href='/submit') Have a phrase to suggest?
 script(src='javascripts/index.js')
-script(type='text/javascript')
-	(function () {
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-2061518-8']);
-		_gaq.push(['_trackPageview']);
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	})();

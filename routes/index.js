@@ -73,6 +73,7 @@
       phrasesText = processPhrases(phrases, 1, 2, 'true');
       return res.render('index', {
         title: 'Dalek Ipsum!',
+        subtitle: 'Placeholder text, mercilessly crafted by the children of Skaro.',
         phrases: phrasesText
       });
     });
@@ -104,5 +105,27 @@
       };
       return res.send(JSON.stringify(phrasesJson));
     });
+  };
+  /*
+  	* GET submitPhrase
+  */
+  exports.submitPhrase = function(req, res) {
+    return res.render('submit', {
+      title: 'Suggest Phrase!',
+      subtitle: 'Fill in the box below, puny human!'
+    });
+  };
+  /*
+   * POST submitPhrase
+  */
+  exports.submitPhrase_post = function(req, res) {
+    var phrase;
+    phrase = req.body.phrase;
+    if (!phrase) {
+      return res.send('Enter a suggestion, or prepare for EXTERMINATION!');
+    } else {
+      db.addPhrase(client, phrase);
+      return res.send('Thanks for your suggestion');
+    }
   };
 }).call(this);

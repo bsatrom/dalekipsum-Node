@@ -1,5 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Bangers|Oswald);
 
+html, body {height: 100%;}
+
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -133,6 +144,10 @@ p a:focus,
 	z-index: -2;
 }
 
+#wrap {
+	min-height: 50%;
+}
+
 #main {
 	font: 18px 'Oswald', sans-serif;	
 	color: #C0D2F3;
@@ -141,6 +156,8 @@ p a:focus,
 	text-align: center;
 	position:relative;
 	top: -30px;
+	overflow:auto;
+	padding-bottom: 30px;
 }
 
 select.styled {
@@ -150,6 +167,16 @@ select.styled {
   padding: 5px;
   font: 18px 'Oswald', sans-serif;
   border: 1px solid #05070c;	
+}
+
+input[type='text'] {
+	background: #05070c;
+	color: #C0D2F3;
+	width: 200px;
+	height: 25px;
+  padding: 5px;
+  font: 20px 'Oswald', sans-serif;
+  border: 2px solid #C0D2F3;
 }
 
 textarea#ipsumText {
@@ -162,7 +189,25 @@ textarea#ipsumText {
   border: 5px solid #05070c;
 }
 
-a.button {
+.error {
+	color: red;
+}
+
+.success {
+	color: #C0D2F3;
+	text-shadow: none;
+	-webkit-transition: 1000ms linear 0s;
+	-moz-transition: 1000ms linear 0s;
+	-o-transition: 1000ms linear 0s;
+	transition: 1000ms linear 0s;
+}
+
+.successEm {
+	color: #fff;
+	text-shadow: -1px 1px 10px #ffc, 1px -1px 10px #fff; 
+}
+
+.button {
 	font: 40px 'Bangers', cursive;	
 	background: #05070c url(/images/alert-overlay.png) repeat-x;
 	display: inline-block;
@@ -197,17 +242,17 @@ footer p {
 	margin: 0;
 	padding: 0;
 }
-
+ 
 footer {
 	position: relative;
+	margin-top: -30px; /* negative value of footer height */
+	height: 30px;
+	clear:both;
 	bottom: 10px;
 	font: 14px 'Oswald', sans-serif;
 	font-weight: 400;
 	text-transform:uppercase;
-	height: 30px;
 	width: 100%;
 	display: block;
-	margin: 0;
-	padding: 0;
 	text-align: center 
 }

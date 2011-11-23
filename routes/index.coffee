@@ -59,7 +59,7 @@ exports.index = (req, res) ->
 	db.getPhrases client, (phrases) ->
 		phrasesText = processPhrases phrases, 1, 2, 'true'
 		
-		res.render 'index', { title: 'Dalek Ipsum!', phrases: phrasesText }
+		res.render 'index', { title: 'Dalek Ipsum!', subtitle: 'Placeholder text, mercilessly crafted by the children of Skaro.', phrases: phrasesText }
 
 ###
  * GET phrases
@@ -81,3 +81,21 @@ exports.placeholderText = (req, res) ->
 		phrasesText = processPhrases phrases, multiplier, paragraphs, pTags
 		phrasesJson = {"text": phrasesText}				
 		res.send JSON.stringify(phrasesJson)	
+		
+###
+	* GET submitPhrase
+###
+exports.submitPhrase = (req, res) ->	
+	res.render 'submit', { title: 'Suggest Phrase!', subtitle: 'Fill in the box below, puny human!' }
+	
+###
+ * POST submitPhrase
+###
+exports.submitPhrase_post = (req, res) ->
+	phrase = req.body.phrase
+	
+	if not phrase
+		res.send 'Enter a suggestion, or prepare for EXTERMINATION!'
+	else
+		db.addPhrase client, phrase
+		res.send 'Thanks for your suggestion'
