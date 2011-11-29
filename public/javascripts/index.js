@@ -1,4 +1,4 @@
-(function() {
+
   (function($) {
     return $('#generate').click(function() {
       var multiplier, pTags, paragraphs;
@@ -14,4 +14,3 @@
       });
     });
   })(jQuery);
-}).call(this);

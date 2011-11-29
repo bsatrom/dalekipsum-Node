@@ -1,4 +1,4 @@
-(function() {
+
   (function($) {
     return $('#makeSuggestion').click(function() {
       var form, phrase, response;
@@ -22,4 +22,3 @@
       }
     });
   })(jQuery);
-}).call(this);

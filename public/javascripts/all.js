@@ -1,4 +1,4 @@
-(function() {
+
   (function($) {
     return $('a').click(function() {
       return $(this).addClass('clicked').delay(300).queue(function(next) {
@@ -7,4 +7,3 @@
       });
     });
   })(jQuery);
-}).call(this);
