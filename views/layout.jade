@@ -2,7 +2,7 @@
 html(lang="en")
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
     script(src='/javascripts/lib/modernizr-2.0.6.js')
     script(src='/javascripts/lib/jquery-1.7.min.js')
   nav
@@ -38,15 +38,15 @@ html(lang="en")
         |	created by 
         a(href="http://dribbble.com/dwiskus") Dave Wiskus
       p This site was built using 
-        a(href="") Node.js 
+        a(href="http://nodejs.org") Node.js #{process.version} 
         | with 
-        a(href="") Express
+        a(href="http://expressjs.com") Express
         |,
-        a(href="") Jade 
+        a(href="http://jade-lang.com") Jade 
         | and 
-        a(href="") CoffeeScript 
+        a(href="http://coffeescript.org") CoffeeScript 
         | and is running on
-        a(href="") Heroku	
+        a(href="http://heroku.com") Heroku	
   script(src='javascripts/all.js')
   script(type='text/javascript')
     var _gaq = _gaq || [];
