@@ -3,3 +3,4 @@ npm-debug.log
 *.stackdump
 .env
 .DS_Store
+.idea

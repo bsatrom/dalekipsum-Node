@@ -1,9 +1,9 @@
+
+/*
+ * Module dependencies.
+*/
+
 (function() {
-
-  /*
-   * Module dependencies.
-  */
-
   var app, express, routes, util;
 
   express = require('express');
